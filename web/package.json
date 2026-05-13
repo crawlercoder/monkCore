@@ -1,0 +1,29 @@
+{
+  "name": "ai-agent-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Next.js UI for the AI-agent MR pipeline (spec -> job -> MR).",
+  "scripts": {
+    "clean": "rm -rf .next",
+    "dev": "next dev -p 9000",
+    "dev:clean": "npm run clean && next dev -p 9000",
+    "build": "next build",
+    "rebuild": "npm run clean && next build",
+    "start": "next start -p 9000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.10",
+    "@types/react-dom": "18.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.15",
+    "typescript": "5.6.2"
+  }
+}

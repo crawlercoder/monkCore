@@ -1,0 +1,29 @@
+# Production runtime dependencies.
+#
+# Pinning policy: lower bound at the minimum version we rely on, upper
+# bound below the next major (or next minor for pre-1.0 packages) so
+# future releases can't silently break us. `pip install -r requirements.txt`
+# in a clean venv should be deterministic enough for CI without needing
+# a lock file; if you need full determinism, generate one with
+# `pip-compile` or `uv pip compile`.
+
+# --- web framework + server ---
+fastapi>=0.115.0,<0.120.0
+uvicorn[standard]>=0.30.0,<0.40.0
+
+# --- data validation + settings (pulls in python-dotenv transitively,
+#     listed explicitly below because our config loads .env) ---
+pydantic[email]>=2.8.0,<3.0.0
+pydantic-settings>=2.4.0,<3.0.0
+python-dotenv>=1.0.0,<2.0.0
+
+# --- aws sdk (botocore is a pinned transitive of boto3; do not add it
+#     separately or you risk version skew) ---
+boto3>=1.34.0,<2.0.0
+
+# --- cross-process file lock for idempotent git clone/update ---
+filelock>=3.12.0,<4.0.0
+
+# --- vector search (RAG) ---
+faiss-cpu>=1.8.0,<2.0.0
+numpy>=1.26.0,<3.0.0

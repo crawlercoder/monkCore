@@ -1,0 +1,14 @@
+# Next.js build output
+/.next/
+/out/
+
+# Dependencies
+/node_modules/
+
+# Env files (repo keeps .env.example only; real .env is local)
+.env*.local
+
+# Misc
+/coverage/
+*.log
+.DS_Store
